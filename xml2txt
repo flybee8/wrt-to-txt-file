@@ -1,0 +1,11 @@
+import xml.etree.ElementTree as etree
+xmld = etree.parse("simple.xml")
+root = xmld.getroot()
+fp=open("xml.txt",'w')
+for child in root:
+    for children in child:
+        #print children.tag," : % s" %children.text
+        fp.write("{} : {}\n".format(children.tag,children.text) )
+    #print ("\n")
+    fp.write("\n")
+fp.close()
